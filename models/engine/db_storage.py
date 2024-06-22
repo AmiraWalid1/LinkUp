@@ -80,3 +80,20 @@ class DBStorage:
     def close(self):
         '''remove the session'''
         self.__session.remove()
+
+    def get(self, cls, id):
+        '''Get obj by id'''
+        if not cls or cls not in self.classes or not id:
+            return None
+        return self.__session.query(cls).filter_by(id=id).first()
+
+    def count(self, cls=None):
+        """Count number of obj of class or all classes."""
+        if cls:
+            if cls in self.classes:
+                return self.__session.query(cls).count()
+            else:
+                return 0
+        else:
+            return sum(self.__session.query(cls).count()
+                       for cls in self.classes)
