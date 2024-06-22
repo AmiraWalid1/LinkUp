@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, String, Integer, ForeignKey
-from base_model import BaseModel, Base
+from models.base_model import BaseModel, Base
+
 
 class Post(BaseModel, Base):
     __tablename__ = "posts"
