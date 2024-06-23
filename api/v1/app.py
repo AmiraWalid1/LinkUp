@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Flask Application """
-from os import environ
+import os
 from flask import Flask, render_template, make_response, jsonify
 from flask_cors import CORS
 from models import storage
