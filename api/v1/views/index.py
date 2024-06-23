@@ -14,3 +14,15 @@ from flask import jsonify
 def status():
     """ Status of API """
     return jsonify({"status": "OK"})
+
+@app_views.route('/stats', methods=['GET'], strict_slashes=False)
+def get_stats():
+    """retreive the number of objects y calling"""
+    classes = {
+        "comments": storage.count("Comment"),
+        "likes": storage.count("Like"),
+        "posts": storage.count("Post"),
+        "users": storage.count("User"),
+        }
+
+    return jsonify(classes), 200
