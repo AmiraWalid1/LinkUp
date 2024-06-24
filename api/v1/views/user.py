@@ -3,19 +3,27 @@
 View for user object
 """
 
-from api.v1.views import app_views, storage
+from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage
 from models.user import User
 
 
+@app_views.route('/users', methods=["GET"], strict_slashes=False)
+def get_all_user():
+    """
+    Retrieves the list of all User objects.
+    """
+    all_users = []
+    users = storage.all(User)
+    for user in users.values():
+        all_users.append(user.to_dict())
+    return jsonify(all_users)
+
 @app_views.route('/users/<user_id>', methods=["GET"], strict_slashes=False)
 def get_user(user_id):
     """
-    Retrieves the list of all User objects.
-
-    Returns:
-        - JSON: List of dictionaries representing all User objects.
+    Retrieves user object with id.
     """
     user = storage.get(User, user_id)
     if user is None:

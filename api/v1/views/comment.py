@@ -11,7 +11,7 @@ from models.post import Post
 from models.comment import Comment
 
 
-@app_views.route('post/<post_id>/comments', methods=["GET"], strict_slashes=False)
+@app_views.route('/post/<post_id>/comments', methods=["GET"], strict_slashes=False)
 def get_all_comments(post_id):
     """
     Retreive all comments of a post
@@ -27,7 +27,7 @@ def get_all_comments(post_id):
     return(jsonify(comments_list))
 
 
-@app_views.route('/comments/<comment_id', methods=["GET"], strict_slashes=False)
+@app_views.route('/comments/<comment_id>', methods=["GET"], strict_slashes=False)
 def get_comment(comment_id):
     """
     retreive comment by comment id
@@ -39,7 +39,7 @@ def get_comment(comment_id):
     return jsonify(comment.to_dict())
 
 
-@app_views.route('/comments/<comment_id', methods=["DELETE"], strict_slashes=False)
+@app_views.route('/comments/<comment_id>', methods=["DELETE"], strict_slashes=False)
 def delete_comment(comment_id):
     """
     delete comment by  comment id
@@ -55,7 +55,7 @@ def delete_comment(comment_id):
 
 
 comment_attrs = ['content', 'user_id', 'post_id']
-@app_views.route('/<post_id>/comments', methods=["GET"], strict_slashes=False)
+@app_views.route('/<post_id>/comments', methods=["POST"], strict_slashes=False)
 def create_commet(post_id):
     """
     create comment in a post by post id
