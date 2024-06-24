@@ -66,7 +66,7 @@ def delete_post(post_id):
     return jsonify({}), 200
 
 
-post_attrs = ['content', 'user_id']
+post_attrs = ['content']
 
 
 @app_views.route('/users/<user_id>/posts', methods=["POST"], strict_slashes=False)
