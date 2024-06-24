@@ -5,6 +5,7 @@ View for user object
 
 from api.v1.views import app_views, storage
 from flask import jsonify, abort, request
+from models import storage
 from models.user import User
 
 
