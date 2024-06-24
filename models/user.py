@@ -10,6 +10,7 @@ class User(BaseModel, Base):
     password = Column(String(30), nullable=False, unique=True)
     email = Column(String(30), nullable=False, unique=True)
     bio = Column(String(100), nullable=True)
+    photo = Column(String(255), nullable=True)  # column for storing photo path or URL
 
     posts = relationship("Post", back_populates="user")
     comments = relationship("Comment", back_populates="user")
