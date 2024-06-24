@@ -45,8 +45,7 @@ class DBStorage:
         session_factory = sessionmaker(bind=self.__engine,
                                        expire_on_commit=False)
         # Scoped Session: scoped_session is used to manage sessions, especially useful in web applications where each request needs a separate session.
-        Session = scoped_session(session_factory)
-        self.__session = Session()
+        self.__session = scoped_session(session_factory)
 
     def all(self, clss=None):
         '''query on the database session'''
