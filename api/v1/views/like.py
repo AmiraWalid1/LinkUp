@@ -14,11 +14,12 @@ def post_likes(post_id):
     post = storage.get(Post, post_id)
     if post is None:
         abort(404, "Post Not Found")
-    
-    likes=[]
+
+    likes = []
     for like in post.likes:
         likes.append(like.to_dict())
     return jsonify(likes)
+
 
 @app_views.route('/users/<user_id>/likes', methods=["GET"], strict_slashes=False)
 def user_likes(user_id):
@@ -26,21 +27,22 @@ def user_likes(user_id):
     user = storage.get(User, user_id)
     if user is None:
         abort(404, "User Not Found")
-    
-    likes=[]
+
+    likes = []
     for like in user.likes:
         likes.append(like.to_dict())
     return jsonify(likes)
+
 
 @app_views.route('/posts/<post_id>/likes', methods=["POST"], strict_slashes=False)
 def add_like(post_id):
     '''Add likes on post.'''
     json = request.get_json(silent=True)
-    
+
     post = storage.get(Post, post_id)
     if post is None:
         abort(404, "Post Not Found")
-    
+
     if json is None:
         abort(400, 'Not a JSON')
 
@@ -53,12 +55,13 @@ def add_like(post_id):
 
     return jsonify(like.to_dict()), 201
 
+
 @app_views.route('/likes/<like_id>', methods=["DELETE"], strict_slashes=False)
 def remove_like(like_id):
     '''Remove likes on post.'''
     like = storage.get(Like, like_id)
     if like is None:
         abort(404, "Like Not Found")
-    
+
     like.delete()
     return jsonify({}), 200

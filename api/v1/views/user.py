@@ -20,6 +20,7 @@ def get_all_user():
         all_users.append(user.to_dict())
     return jsonify(all_users)
 
+
 @app_views.route('/users/<user_id>', methods=["GET"], strict_slashes=False)
 def get_user(user_id):
     """
@@ -29,6 +30,7 @@ def get_user(user_id):
     if user is None:
         abort(404, "User Not Found")
     return jsonify(user.to_dict())
+
 
 @app_views.route('/users/<user_id>', methods=["DELETE"], strict_slashes=False)
 def delete_user(user_id):
@@ -48,31 +50,37 @@ def update_user(user_id):
     """
     A function to update user object
     """
-    if not request.json:
-            abort(400, 'Not a JSON')
+    json_data = request.get_json(silent=True)
+    if json_data is None:
+        abort(400, 'Not a JSON')
+
     ignore = ['id', 'created_at', 'updated_at']
-    data = request.json
     user = storage.get(User, user_id)
     if user is None:
-        abort(404, "User Not Fount")
-    for k, v in data.items():
-        if k not in ignore:
-           setattr(user, k, v)
-           user.save()
+        abort(404, "User Not Found")
+
+    for key, value in json_data.items():
+        if key not in ignore:
+            setattr(user, key, value)
+    storage.save()
     return jsonify(user.to_dict()), 200
 
 
 user_attrs = ['name', 'email', 'password']
+
+
 @app_views.route('/users', methods=['POST'], strict_slashes=False)
-def create_user(user_id):
-    """
-    create user attributes
-    """
-    if not request.json:
+def create_user():
+    """ create user. """
+    json_data = request.get_json(silent=True)
+    if json_data is None:
         abort(400, 'Not a JSON')
+
     for attr in user_attrs:
-        if attr not in request.json:
-            abort(400, f'Missing <{attr}> Attribute')
-    user = User(**request.json)
-    user.save()
+        if attr not in json_data:
+            abort(400, f'Missing {attr} Attribute')
+
+    user = User(**json_data)
+    storage.new(user)
+    storage.save()
     return jsonify(user.to_dict()), 201

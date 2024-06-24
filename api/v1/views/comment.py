@@ -11,8 +11,8 @@ from models.post import Post
 from models.comment import Comment
 
 
-@app_views.route('/post/<post_id>/comments', methods=["GET"], strict_slashes=False)
-def get_all_comments(post_id):
+@app_views.route('/posts/<post_id>/comments', methods=["GET"], strict_slashes=False)
+def post_comments(post_id):
     """
     Retreive all comments of a post
     """
@@ -24,7 +24,23 @@ def get_all_comments(post_id):
     for comment in post.comments:
         comments_list.append(comment.to_dict())
 
-    return(jsonify(comments_list))
+    return (jsonify(comments_list))
+
+
+@app_views.route('/users/<user_id>/comments', methods=["GET"], strict_slashes=False)
+def user_comments(user_id):
+    """
+    Retreive all comments of a user
+    """
+    comments_list = []
+    user = storage.get(User, user_id)
+    if user is None:
+        abort(404, "User Not found")
+
+    for comment in user.comments:
+        comments_list.append(comment.to_dict())
+
+    return (jsonify(comments_list))
 
 
 @app_views.route('/comments/<comment_id>', methods=["GET"], strict_slashes=False)
@@ -49,27 +65,49 @@ def delete_comment(comment_id):
         abort(404, "Comment Not Found")
 
     comment.delete()
-    storage.save()
-
     return jsonify({}), 200
 
 
-comment_attrs = ['content', 'user_id', 'post_id']
-@app_views.route('/<post_id>/comments', methods=["POST"], strict_slashes=False)
-def create_commet(post_id):
+comment_attrs = ['content', 'user_id']
+
+
+@app_views.route('/posts/<post_id>/comments', methods=["POST"], strict_slashes=False)
+def create_comment(post_id):
     """
-    create comment in a post by post id
+    Create comment in a post by post id
     """
     post = storage.get(Post, post_id)
     if post is None:
         abort(404, "Post Not Found")
 
-    if not request.json:
+    json = request.get_json(silent=True)
+    if not json:
         abort(400, 'Not a JSON')
+
     for attr in comment_attrs:
-        if attr not in request.json:
+        if attr not in json:
             abort(400, f'Missing <{attr}> Attribute')
 
-    comment = comment(**request.json)
+    json['post_id'] = post_id
+    comment = Comment(**json)
     comment.save()
     return jsonify(comment.to_dict()), 201
+
+
+@app_views.route('/comments/<comment_id>', methods=['PUT'], strict_slashes=False)
+def update_comment(comment_id):
+    ''' Update a Comment by comment_id. '''
+    json = request.get_json(silent=True)
+    if not json:
+        abort(400, 'Not a JSON')
+
+    comment = storage.get(Comment, comment_id)
+    if not comment:
+        abort(404, "Comment Not Found")
+
+    ignore = ['id', 'created_at', 'updated_at', 'user_id', 'post_id']
+    for key, value in json.items():
+        if key not in ignore:
+            setattr(comment, key, value)
+    storage.save()
+    return jsonify(comment.to_dict()), 200

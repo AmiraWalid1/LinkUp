@@ -21,7 +21,20 @@ def get_all_post():
     for post in post_obj.values():
         posts.append(post.to_dict())
 
-    return(jsonify(posts))
+    return (jsonify(posts))
+
+
+@app_views.route('/posts/<post_id>', methods=["GET"], strict_slashes=False)
+def get_post_by_id(post_id):
+    """
+    Retreive specific post by post id
+    """
+    post = storage.get(Post, post_id)
+    if post is None:
+        abort(404, "Post Not Found")
+
+    return jsonify(post.to_dict())
+
 
 @app_views.route('/users/<user_id>/posts', methods=["GET"], strict_slashes=False)
 def get_user_posts(user_id):
@@ -37,18 +50,8 @@ def get_user_posts(user_id):
     for post in user.posts:
         posts_list.append(post.to_dict())
 
-    return(jsonify(posts_list))
+    return (jsonify(posts_list))
 
-@app_views.route('/posts/<post_id>', methods=["GET"], strict_slashes=False)
-def get_post_by_id(post_id):
-    """
-    Retreive specific post by post id
-    """
-    post = storage.get(Post, post_id)
-    if post is None:
-        abort(404, "Post Not Found")
-
-    return jsonify(post.to_dict())
 
 @app_views.route('/posts/<post_id>', methods=["DELETE"], strict_slashes=False)
 def delete_post(post_id):
@@ -60,12 +63,13 @@ def delete_post(post_id):
         abort(404, "Post Not Found")
 
     post.delete()
-    storage.save()
-
     return jsonify({}), 200
 
-post_attrs = ['content', 'usr_id']
-@app_views.route('/<user_id>/posts', methods=["POST"], strict_slashes=False)
+
+post_attrs = ['content', 'user_id']
+
+
+@app_views.route('/users/<user_id>/posts', methods=["POST"], strict_slashes=False)
 def create_post(user_id):
     """
     create new post
@@ -73,15 +77,20 @@ def create_post(user_id):
     user = storage.get(User, user_id)
     if user is None:
         abort(404, "User Not Found")
-    if not request.json:
+
+    json_data = request.get_json(silent=True)
+    if json_data is None:
         abort(400, 'Not a JSON')
+
     for attr in post_attrs:
-        if attr not in request.json:
+        if attr not in json_data:
             abort(400, f'Missing <{attr}> Attribute')
 
-    post = Post(**request.json)
+    json_data['user_id'] = user_id
+    post = Post(**json_data)
     post.save()
     return jsonify(post.to_dict()), 201
+
 
 @app_views.route('/posts/<post_id>', methods=["PUT"], strict_slashes=False)
 def update_post(post_id):
@@ -92,14 +101,13 @@ def update_post(post_id):
     if post is None:
         abort(404, "Post Not Found")
 
-    if not request.json:
+    json_data = request.get_json(silent=True)
+    if json_data is None:
         abort(400, 'Not a JSON')
 
-    ignore = ['id', 'created_at', 'updated_at']
-    data = request.json
-    for k, v in data.items():
+    ignore = ['id', 'created_at', 'updated_at', 'user_id']
+    for k, v in json_data.items():
         if k not in ignore:
             setattr(post, k, v)
-            post.save()
+    storage.save()
     return jsonify(post.to_dict()), 200
-
