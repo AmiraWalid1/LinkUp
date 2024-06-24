@@ -48,7 +48,7 @@ def get_post_by_id(post_id):
     if post is None:
         abort(404, "Post Not Found")
 
-    return(jsonify(post.to_dict())
+    return jsonify(post.to_dict())
 
 @app_views.route('/posts/<post_id>', methods=["DELETE"], strict_slashes=False)
 def delete_post(post_id):
