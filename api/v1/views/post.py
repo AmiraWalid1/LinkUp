@@ -3,7 +3,7 @@
 View for post object
 """
 
-from api.v1.views import app_views, storage
+from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage
 from models.user import User
@@ -16,7 +16,7 @@ def get_all_post():
     Retrieves the list of all posts
     """
     posts = []
-    post_obj = storage.all("Post")
+    post_obj = storage.all(Post)
 
     for post in post_obj.values():
         posts.append(post.to_dict())

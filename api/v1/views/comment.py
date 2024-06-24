@@ -11,18 +11,18 @@ from models.post import Post
 from models.comment import Comment
 
 
-@app_views.route('/<post_id>/comments', methods=["GET"], strict_slashes=False)
+@app_views.route('post/<post_id>/comments', methods=["GET"], strict_slashes=False)
 def get_all_comments(post_id):
     """
     Retreive all comments of a post
     """
     comments_list = []
-    post = storage.get(Comment, comment_id)
+    post = storage.get(Post, post_id)
     if post is None:
         abort(404, "Post Not found")
 
     for comment in post.comments:
-        comment_list.append(comment.to_dict())
+        comments_list.append(comment.to_dict())
 
     return(jsonify(comments_list))
 
@@ -36,7 +36,7 @@ def get_comment(comment_id):
     if comment is None:
         abort(404, "Comment Not Found")
 
-    return(jsonify(comment.to_dict())
+    return jsonify(comment.to_dict())
 
 
 @app_views.route('/comments/<comment_id', methods=["DELETE"], strict_slashes=False)
