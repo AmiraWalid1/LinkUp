@@ -19,15 +19,19 @@
 
     <!-- form on left section -->
     <div class="form-container">
-        <h1 class="greeting">Hi Friends!</h1>
+	<form method="POST" action="">
+		{{ form.hidden_tag() }}
+        	<h1 class="greeting">Hi Friends!</h1>
 
-        <div class="input-container">
-            <input type="text" placeholder="Enter Username">
-        </div>
+        	<div class="input-container">
+            	{{ form.username.label }}
+		{{ form.username }}
+        	</div>
 
-        <div class="password-container">
-            <input type="password" placeholder="Password">
-            <div>
+        	<div class="password-container">
+		{{ form.password.label }}
+		{{ form.password }}
+            	<div>
                 <img class="eye" src="eye-slash-regular.svg" alt="eye">
             </div>
         </div>
