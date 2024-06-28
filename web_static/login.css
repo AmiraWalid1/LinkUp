@@ -11,9 +11,8 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: end;
-    margin-top: 52px;
+    padding: 50px 60px 35px 160px;
     font-family: Inter;   
-    margin-right: 4rem;
     font-size: 1.2rem;
 }
 
@@ -33,7 +32,8 @@ body {
 }
 
 .form-container {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     height: 480px;
     background: rgba(217, 217, 217, 0.20999999344348907);
     opacity: 1;
@@ -54,6 +54,10 @@ body {
     opacity: 1;
     white-space: nowrap;
     text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 600;
 }
 
 .input-container {
@@ -65,7 +69,7 @@ body {
     overflow: hidden;
     display: flex;
     justify-content: center;
-    justify-items: center;
+    /* align-items: center; */
     margin-top: 1rem;
     margin-bottom: 15px;
 }
@@ -79,7 +83,7 @@ body {
     overflow: hidden;
     display: flex;
     justify-content: center;
-    justify-items: center;
+    margin-bottom: 5px;
 }
 
 input {
@@ -89,7 +93,6 @@ input {
     justify-content: center;
     font-size: 1.25rem;
     font-family: Inter;
-    /* color: ; */
 }
 
 input:focus {
@@ -98,8 +101,6 @@ input:focus {
 }
 
 .Forget{
-    display: flex;
-    justify-content: end;
     text-decoration: none;
     font-size: 1rem ;
     font-family: Inter;
@@ -109,7 +110,7 @@ input:focus {
     margin-left: 180px;
 }
 
-button{
+.button{
     width: 340px;
     height: 60px;
     background: #0B502E;
@@ -118,11 +119,14 @@ button{
     overflow: hidden;
     position: relative;
     margin-top: 2rem;
-
     border: none;
     color: rgba(255, 255, 255, 1);
     font-family: Inter;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 } 
 
 #continue {
@@ -158,21 +162,23 @@ button{
 
 .eye {
     width: 30px;
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
     margin-top: 18px;
     position: absolute;
+    right: 55px;
+    /* top: 5px; */
 }
 
 .cover {
     width: 400px;
-    height: 400px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     opacity: 1;
     position: absolute;
-    top: 8rem;
-    right: 20rem;
+    /* /* top: 8rem; */
+    right: 20rem; 
     overflow: hidden;
+    /* margin-right: 530px; */
     
 } 

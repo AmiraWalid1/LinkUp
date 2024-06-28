@@ -74,7 +74,7 @@ input:focus {
    outline-style: none;
 }
 
-button{
+.button{
     width: 340px;
     height: 60px;
     background: #0B502E;
@@ -82,14 +82,16 @@ button{
     font-size: 1.25rem;
     overflow: hidden;
     position: relative;
-    margin-top: .8rem;
-
+    margin-top: 2rem;
     border: none;
     color: rgba(255, 255, 255, 1);
     font-family: Inter;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 } 
-
 #continue {
     display: flex;
     justify-content: center;
@@ -112,11 +114,14 @@ button{
     margin-top: 15px;
     margin-left: 150px;
 }
+
 .eye {
-    width: 30px;
-    margin-right: 60px;
+    width: 25px;
+    /* margin-right: 2rem; */
     margin-top: 18px;
     position: absolute;
+    right: 55px;
+    /* top: 5px; */
 }
 
 .cover {
