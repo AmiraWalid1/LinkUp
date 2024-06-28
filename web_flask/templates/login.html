@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+    {% block content %}
     <!-- register section at top right -->
     <div id="top">
         <p id="nav">Not a member?</p>
@@ -24,8 +24,8 @@
         	<h1 class="greeting">Hi Friends!</h1>
 
         	<div class="input-container">
-            	{{ form.username.label }}
-		{{ form.username }}
+            	{{ form.email.label }}
+		{{ form.email }}
         	</div>
 
         	<div class="password-container">
@@ -33,8 +33,10 @@
 		{{ form.password }}
             	<div>
                 <img class="eye" src="eye-slash-regular.svg" alt="eye">
-            </div>
-        </div>
+		</div>
+		</div>
+   </div>
+   <div>
 
         <a class="Forget" href="#"> Forget Password? </a>
 
@@ -52,7 +54,7 @@
 
     <!-- photo on the left -->
     <img class="cover" src="login.png" alt="pic">
-
+    {% endblock content %}
 </body>
 
 </html>
