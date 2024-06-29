@@ -5,6 +5,8 @@ starts a Flask web application
 
 from flask import Flask, render_template, url_for
 from web_flask.forms import RegistrationForm, LoginForm
+from models import *
+from models import storage
 
 
 app = Flask(__name__)
