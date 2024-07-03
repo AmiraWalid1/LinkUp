@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+</head>
+
+<body>
+
+    <!-- register section at top right -->
+    <div id="top">
+        <p id="nav">Not a member?</p>
+        <a id="nav-link" href="signUp.html"> Register Now </a>
+    </div>
+
+    <div class="gridLayout">
+        <!-- form on left section -->
+        <div class="grid-item formColumn">
+            <div class="form-container">
+                <h1 class="greeting">Hi Friends!</h1>
+		<form action="" method="POST">
+                	<div class="input-container">
+				<input type="text" placeholder="Enter Username" value="{{ form.username }}">
+                	</div>
+
+                	<div class="password-container">
+                    		<img class="eye" src="./assets/eye-slash-regular.svg" alt="eye">
+				<input type="password" placeholder="Password" value="{{ form.password }}">
+                	</div>
+		</form>
+
+                <div class="question-wrapper">
+                    <a class="Forget" href="#"> Forget Password? </a>
+                </div>
+
+                <a class="button" href="home.html"> Login </a>
+
+                <p id="continue"> Or continue with</p>
+
+                <div class="logo-container">
+                    <img class="logo" src="./assets/google.png" alt="google">
+                    <img class="logo" src="./assets/apple.png" alt="apple">
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <!-- photo on the left -->
+        <div class="grid-item imgColumn">
+            <img class="cover" src="./assets/login.png" alt="pic">
+        </div>
+    </div>
+
+</body>
+
+</html>
