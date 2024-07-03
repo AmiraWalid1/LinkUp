@@ -22,29 +22,55 @@
         <div class="grid-item formColumn">
             <div class="form-container">
                 <h1 class="greeting">Hi Friends!</h1>
+		{% block content %}
+		<form method="POST" action="">
+		    {{ form.hidden_tag() }}
+                    <div class="input-container">
+			    {{ form.email.label }}
+                            
+			    {% if form.email.errors %}
+			        {{ form.email }}
+				<div class="invalid">
+					{% for error in form.email.errors %}
+					    <span>{{ error }}</span>
+					{% endfor %}
+			        </div>
 
-                <div class="input-container">
-                    <input type="text" placeholder="Enter Username">
-                </div>
+                            {% else %}
+			       {{ form.email }}
+			    {% endif %}
+                    </div>
 
-                <div class="password-container">
-                    <img class="eye" src="./assets/eye-slash-regular.svg" alt="eye">
-                    <input type="password" placeholder="Password">
-                </div>
+                    <div class="password-container">
+                        <img class="eye" src="./assets/eye-slash-regular.svg" alt="eye">
+                        {{ form.password.label }}
+			{% if form.email.errors %}
+                                {{ form.password }}
+                                <div class="invalid">
+                                        {% for error in form.password.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                </div>
 
-                <div class="question-wrapper">
-                    <a class="Forget" href="#"> Forget Password? </a>
-                </div>
+                        {% else %}
+                            {{ form.email }}
+                        {% endif %}
+                    </div>
 
-                <a class="button" href="home.html"> Login </a>
+                    <div class="question-wrapper">
+                        <a class="Forget" href="#"> Forget Password? </a>
+                    </div>
 
-                <p id="continue"> Or continue with</p>
+		    {{ form.submit(class='button') }}
 
-                <div class="logo-container">
-                    <img class="logo" src="./assets/google.png" alt="google">
-                    <img class="logo" src="./assets/apple.png" alt="apple">
-                </div>
+                    <p id="continue"> Or continue with</p>
 
+                    <div class="logo-container">
+                        <img class="logo" src="./assets/google.png" alt="google">
+                        <img class="logo" src="./assets/apple.png" alt="apple">
+                    </div>
+		</form>
+                {% end block %]
 
             </div>
         </div>
