@@ -12,40 +12,75 @@
 <body>
 
     <!-- form on left section -->
-    <div class="form-container">
-        <h1 class="greeting"> Sign Up Now </h1>
+    <form method="POST" action="">
+	    {{ form.hidden_tag() }}
+    	<div class="form-container">
+        	<h1 class="greeting"> Sign Up Now </h1>
 
-        <div class="password-container">
-            <input type="text" placeholder="Username">
-            <div>
-                <img class="eye" src="./assets/user.png" alt="eye">
-            </div>
-        </div>
+        	<div class="password-container">
+			{{ form.username.label }}
+			{% if form.username.errors %}
+                                {{ form.username }}
+                                <div class="invalid">
+                                        {% for error in form.username.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                </div>
 
-
-
-        <div class="password-container">
-            <input type="email" placeholder="Email">
-            <div>
-                <img class="eye" src="./assets/email.png" alt="eye">
-            </div>
-        </div>
-
-
-        <div class="password-container">
-            <input type="password" placeholder="Password">
-            <div>
-                <img class="eye" src="./assets/lock.png" alt="eye">
-            </div>
-        </div>
-
-        <a class="button" href="home.html"> Sign Up </a>
+                            {% else %}
+                               {{ form.username }}
+                            {% endif %}
+            	<div>
+                	<img class="eye" src="./assets/user.png" alt="eye">
+            	</div>
+        	</div>
 
 
-        <a class="Forget" href="login.html"> Already Have Account? </a>
+
+        	<div class="password-container">
+            	{{ form.email.label }}
+
+                            {% if form.email.errors %}
+                                {{ form.email }}
+                                <div class="invalid">
+                                        {% for error in form.email.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                </div>
+
+                            {% else %}
+                               {{ form.email }}
+                            {% endif %}
+            	<div>
+                	<img class="eye" src="./assets/email.png" alt="eye">
+            	</div>
+        	</div>
 
 
-    </div>
+        	<div class="password-container">
+        	 {{ form.password.label }}
+                        {% if form.email.errors %}
+                                {{ form.password }}
+                                <div class="invalid">
+                                        {% for error in form.password.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                </div>
+
+                        {% else %}
+                            {{ form.password }}
+                        {% endif %}
+            	<div>
+                	<img class="eye" src="./assets/lock.png" alt="eye">
+            	</div>
+        	</div>
+
+		{{ form.submit(class="button") }}
+        	<a class="Forget" href="login.html"> Already Have Account? </a>
+
+
+    	</div>
+    </form>
 
     <!-- photo on the left -->
     <img class="cover" src="./assets/signup.png" alt="pic">
