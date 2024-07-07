@@ -2,9 +2,9 @@
 from sqlalchemy import Column, String, Integer
 from sqlalchemy.orm import relationship
 from models.base_model import BaseModel, Base
+from flask_login import UserMixin
 
-
-class User(BaseModel, Base):
+class User(BaseModel, Base, UserMixin):
     __tablename__ = "users"
     name = Column(String(60), nullable=False)
     password = Column(String(30), nullable=False, unique=True)
