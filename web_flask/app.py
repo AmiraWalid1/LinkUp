@@ -7,6 +7,7 @@ from flask import Flask, render_template, url_for
 from web_flask.forms import RegistrationForm, LoginForm
 from models import *
 from models import storage
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app = Flask(__name__)
@@ -25,6 +26,15 @@ def login():
 def signup():
     """returns sign up page"""
     form = RegestrationForm()
+
+    if form.validate_on_submit():
+        hashed_pw = generate_password_hash(form.password.data, method="sha256")
+        new_user = User(name=form.username.data, email=form.email.data, password=hashed_pw)
+        storage.new(new_user)
+        storage.save()
+        flash("You've been registered successfully, now you can log in.")
+        return redirect(url_for("login"))
+
     return render_template('signUp.html', form=form)
 
 if __name__ == '__main__':
