@@ -8,10 +8,20 @@ from web_flask.forms import RegistrationForm, LoginForm
 from models import *
 from models import storage
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import LoginManager, login_user
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '125381cf7c3b4af8e4659822bff66c6f'
+
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "login"
+
+@login_manager.user_loader
+def load_user(user_id):
+    return storage.get(User, user_id)
 
 
 @app.route('/', strict_slashes=False)
@@ -19,6 +29,15 @@ app.config['SECRET_KEY'] = '125381cf7c3b4af8e4659822bff66c6f'
 def login():
     """returns log in page"""
     form = LoginForm()
+    if form.validate_on_submit():
+        for usr in storage.all(User):
+            if usr.name == form.username.data:
+                user = usr
+            break;
+        if user and check_password_hash(user.password, form.password.data):
+             login_user(user)
+             return redirect(url_for("home"))
+        return "Your credentials are invalid."
     return render_template('login.html', form=form)
 
 
