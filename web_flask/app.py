@@ -8,7 +8,7 @@ from web_flask.forms import RegistrationForm, LoginForm
 from models import *
 from models import storage
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import LoginManager, login_user
+from flask_login import LoginManager, login_required, login_user, current_user
 
 
 app = Flask(__name__)
