@@ -71,5 +71,19 @@ def new_post():
     return render_template('home.html')
 
 
+@app.route("/post/<int:post_id>/delete", methods=['POST'])
+@login_required
+def delete_post(post_id):
+    post = storage.get(Post, post_id)
+    if post is None:
+        abort(404)
+    if post.user_id != current_user.id:
+        abort(403)
+    storage.delete(post)
+    storage.save()
+    flash('Your post has been deleted!', 'success')
+    return redirect(url_for('home'))
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='5000', debug=True)
