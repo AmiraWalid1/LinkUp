@@ -85,5 +85,12 @@ def delete_post(post_id):
     return redirect(url_for('home'))
 
 
+@app.route("/home")
+@login_required
+def home():
+    posts = storage.all(Post)
+    return render_template('home.html', posts=posts)
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='5000', debug=True)
