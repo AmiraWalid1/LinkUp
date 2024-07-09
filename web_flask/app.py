@@ -19,6 +19,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return storage.get(User, user_id)
@@ -55,6 +56,20 @@ def signup():
         return redirect(url_for("login"))
 
     return render_template('signUp.html', form=form)
+
+
+@app.route("/post/new", methods=['GET', 'POST'])
+@login_required
+def new_post():
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(content=form.content.data, user_id=current_user.id)
+        storage.add(post)
+        storage.save()
+        flash('Your post has been created!', 'success')
+        return redirect(url_for('home'))
+    return render_template('home.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='5000', debug=True)
