@@ -3,9 +3,13 @@
 starts a Flask web application
 """
 
-from flask import Flask, render_template, url_for
-from web_flask.forms import RegistrationForm, LoginForm
-from models import *
+from flask import Flask, render_template, url_for, redirect, flash, abort
+from web_flask.forms import RegistrationForm, LoginForm, PostForm
+from models.base_model import BaseModel
+from models.user import User
+from models.post import Post
+from models.comment import Comment
+from models.like import Like
 from models import storage
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, login_required, login_user, current_user
@@ -26,7 +30,7 @@ def load_user(user_id):
 
 
 @app.route('/', strict_slashes=False)
-@app.route('/login', methods=['GET', 'POST'], strict_slashes=False)
+@app.route('/login.html', methods=['GET', 'POST'], strict_slashes=False)
 def login():
     """returns log in page"""
     form = LoginForm()
@@ -34,18 +38,18 @@ def login():
         for usr in storage.all(User):
             if usr.name == form.username.data:
                 user = usr
-            break;
+            break
         if user and check_password_hash(user.password, form.password.data):
              login_user(user)
-             return redirect(url_for("home"))
+             return redirect(url_for("home.html"))
         return "Your credentials are invalid."
     return render_template('login.html', form=form)
 
 
-@app.route('/signUp', methods=['GET', 'POST'], strict_slashes=False)
+@app.route('/signUp.html', methods=['GET', 'POST'], strict_slashes=False)
 def signup():
     """returns sign up page"""
-    form = RegestrationForm()
+    form = RegistrationForm()
 
     if form.validate_on_submit():
         hashed_pw = generate_password_hash(form.password.data, method="sha256")
@@ -53,7 +57,7 @@ def signup():
         storage.new(new_user)
         storage.save()
         flash("You've been registered successfully, now you can log in.")
-        return redirect(url_for("login"))
+        return redirect(url_for("login.html"))
 
     return render_template('signUp.html', form=form)
 
@@ -82,10 +86,10 @@ def delete_post(post_id):
     storage.delete(post)
     storage.save()
     flash('Your post has been deleted!', 'success')
-    return redirect(url_for('home'))
+    return redirect(url_for('home.html'))
 
 
-@app.route("/home")
+@app.route("/home.html")
 @login_required
 def home():
     posts = storage.all(Post)

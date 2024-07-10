@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../static/styles/login.css">
     <title>Login</title>
 </head>
 
@@ -22,16 +22,15 @@
         <div class="grid-item formColumn">
             <div class="form-container">
                 <h1 class="greeting">Hi Friends!</h1>
-		<form action="" method="POST">
-                	<div class="input-container">
-				<input type="text" placeholder="Enter Username" value="{{ form.username }}">
-                	</div>
 
-                	<div class="password-container">
-                    		<img class="eye" src="./assets/eye-slash-regular.svg" alt="eye">
-				<input type="password" placeholder="Password" value="{{ form.password }}">
-                	</div>
-		</form>
+                <div class="input-container">
+                    <input type="text" placeholder="Enter Username">
+                </div>
+
+                <div class="password-container">
+                    <img class="eye" src="../static/styles/imgs/eye-slash-regular.svg" alt="eye">
+                    <input type="password" placeholder="Password">
+                </div>
 
                 <div class="question-wrapper">
                     <a class="Forget" href="#"> Forget Password? </a>
@@ -42,8 +41,8 @@
                 <p id="continue"> Or continue with</p>
 
                 <div class="logo-container">
-                    <img class="logo" src="./assets/google.png" alt="google">
-                    <img class="logo" src="./assets/apple.png" alt="apple">
+                    <img class="logo" src="../static/styles/imgs/google.png" alt="google">
+                    <img class="logo" src="../static/styles/imgs/apple.png" alt="apple">
                 </div>
 
 
@@ -53,7 +52,7 @@
 
         <!-- photo on the left -->
         <div class="grid-item imgColumn">
-            <img class="cover" src="./assets/login.png" alt="pic">
+            <img class="cover" src="../static/styles/imgs/login.png" alt="pic">
         </div>
     </div>
 
