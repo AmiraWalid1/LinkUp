@@ -41,7 +41,7 @@ def login():
             break
         if user and check_password_hash(user.password, form.password.data):
              login_user(user)
-             return redirect(url_for("home.html"))
+             return redirect(render_template("home.html"))
         return "Your credentials are invalid."
     return render_template('login.html', form=form)
 
@@ -62,7 +62,7 @@ def signup():
     return render_template('signUp.html', form=form)
 
 
-@app.route("/home", methods=['GET', 'POST'])
+@app.route("/home.html", methods=['GET', 'POST'])
 @login_required
 def new_post():
     form = PostForm()
@@ -71,7 +71,7 @@ def new_post():
         storage.add(post)
         storage.save()
         flash('Your post has been created!', 'success')
-        return redirect(url_for('home'))
+        return redirect(render_template('home,html'))
     return render_template('home.html', form=form)
 
 
