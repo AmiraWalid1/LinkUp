@@ -1,6 +1,6 @@
 <h1>LinkUp</h1>
 <p>Socail Media App in which you can connect with your network via posts and engage with likes and comments</p>
-<h2>Auths</h2>
+<h2>Authors</h2>
 <h3>Amira Walid</h3>
 <h3>Azza Ibrahim</h3>
 <h2>Usage</h2>
