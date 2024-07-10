@@ -58,7 +58,7 @@ def signup():
     return render_template('signUp.html', form=form)
 
 
-@app.route("/post/new", methods=['GET', 'POST'])
+@app.route("/home", methods=['GET', 'POST'])
 @login_required
 def new_post():
     form = PostForm()
@@ -68,7 +68,7 @@ def new_post():
         storage.save()
         flash('Your post has been created!', 'success')
         return redirect(url_for('home'))
-    return render_template('home.html')
+    return render_template('home.html', form=form)
 
 
 @app.route("/post/<int:post_id>/delete", methods=['POST'])
