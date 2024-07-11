@@ -15,41 +15,38 @@
     <div class="form-container">
         <h1 class="greeting"> Sign Up Now </h1>
 
-        <div class="password-container">
-            <input type="text" placeholder="Username">
-            <div>
-                <img class="eye" src="../static/styles/imgs/user.png" alt="eye">
+        <form id="signup-form">
+            <div class="password-container">
+                <input type="text" name="username" placeholder="Username">
+                <div>
+                    <img class="eye" src="../static/styles/imgs/user.png" alt="user">
+                </div>
             </div>
-        </div>
 
-
-
-        <div class="password-container">
-            <input type="email" placeholder="Email">
-            <div>
-                <img class="eye" src="../static/styles/imgs/email.png" alt="eye">
+            <div class="password-container">
+                <input type="email" name="email" placeholder="Email">
+                <div>
+                    <img class="eye" src="../static/styles/imgs/email.png" alt="email">
+                </div>
             </div>
-        </div>
 
-
-        <div class="password-container">
-            <input type="password" placeholder="Password">
-            <div>
-                <img class="eye" src="../static/styles/imgs/lock.png" alt="eye">
+            <div class="password-container">
+                <input type="password" name="password" placeholder="Password">
+                <div>
+                    <img class="eye" src="../static/styles/imgs/lock.png" alt="lock">
+                </div>
             </div>
-        </div>
 
-        <a class="button" href="home.html"> Sign Up </a>
-
+            <button type="submit" class="button">Sign Up</button>
+        </form>
 
         <a class="Forget" href="login.html"> Already Have Account? </a>
-
-
     </div>
 
     <!-- photo on the left -->
     <img class="cover" src="../static/styles/imgs/signup.png" alt="pic">
 
+    <script src="../script/signUp.js"></script>
 </body>
 
 </html>

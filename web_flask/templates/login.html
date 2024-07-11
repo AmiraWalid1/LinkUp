@@ -23,39 +23,39 @@
             <div class="form-container">
                 <h1 class="greeting">Hi Friends!</h1>
 
-                <div class="input-container">
-                    <input type="text" placeholder="Enter Username">
-                </div>
+                <form id="login-form">
+                    <div class="input-container">
+                        <input type="text" name="username" placeholder="Enter Username" required>
+                    </div>
 
-                <div class="password-container">
-                    <img class="eye" src="../static/styles/imgs/eye-slash-regular.svg" alt="eye">
-                    <input type="password" placeholder="Password">
-                </div>
+                    <div class="password-container">
+                        <img class="eye" src="../static/styles/imgs/eye-slash-regular.svg" alt="eye">
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
 
-                <div class="question-wrapper">
-                    <a class="Forget" href="#"> Forget Password? </a>
-                </div>
+                    <div class="question-wrapper">
+                        <a class="Forget" href="#"> Forget Password? </a>
+                    </div>
 
-                <a class="button" href="home.html"> Login </a>
+                    <button type="submit" class="button">Login</button>
 
-                <p id="continue"> Or continue with</p>
+                    <p id="continue"> Or continue with</p>
 
-                <div class="logo-container">
-                    <img class="logo" src="../static/styles/imgs/google.png" alt="google">
-                    <img class="logo" src="../static/styles/imgs/apple.png" alt="apple">
-                </div>
-
+                    <div class="logo-container">
+                        <img class="logo" src="../static/styles/imgs/google.png" alt="google">
+                        <img class="logo" src="../static/styles/imgs/apple.png" alt="apple">
+                    </div>
+                </form>
 
             </div>
         </div>
-
 
         <!-- photo on the left -->
         <div class="grid-item imgColumn">
             <img class="cover" src="../static/styles/imgs/login.png" alt="pic">
         </div>
     </div>
-
+    <script src="../script/login.js"></script>
 </body>
 
 </html>
