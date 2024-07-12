@@ -17,6 +17,7 @@ document.getElementById('login-form').addEventListener('submit', async function 
         if (user) {
             // Redirect to home.html on successful login
             window.location.href = new URL(window.location.origin + '/web_flask/templates/home.html');
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
         } else {
             console.log('User not found or incorrect credentials.');
             // Handle invalid login scenario (display error message, etc.)
