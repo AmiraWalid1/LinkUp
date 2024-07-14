@@ -3,7 +3,7 @@
 starts a Flask web application
 """
 
-from flask import Flask, render_template, url_for, redirect, flash, abort
+from flask import Flask, render_template, url_for, redirect, flash, abort # type: ignore
 from web_flask.forms import RegistrationForm, LoginForm, PostForm
 from models.base_model import BaseModel
 from models.user import User
@@ -12,7 +12,7 @@ from models.comment import Comment
 from models.like import Like
 from models import storage
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import LoginManager, login_required, login_user, current_user
+from flask_login import LoginManager, login_required, login_user, current_user # type: ignore
 
 
 app = Flask(__name__)
