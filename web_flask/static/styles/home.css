@@ -158,6 +158,7 @@ body {
     border-radius:50px;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .profileAndUser {
@@ -189,8 +190,28 @@ body {
     margin: 0%;
 }
 
+.post-text {
+    /* align-self: center; */
+    position: absolute;
+    left: 69px; 
+    top: 110px;
+    margin-top: 37px;
+}
+
+.post-options-formula {
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+    height: 39px;
+    margin-top: 55px;
+}
+
+
+
 .post-content {
     align-self: center;
+    /* position: absolute; */
+    /* left: 69px;  */
     margin-top: 37px;
 }
 
