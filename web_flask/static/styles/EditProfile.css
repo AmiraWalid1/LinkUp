@@ -1,0 +1,99 @@
+html {
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    font-family: 'Inter';
+}
+
+.nav {
+  
+    height: 70px;
+    display: flex;
+    align-self: normal;
+}
+
+.cover {
+    position: relative;
+    margin-bottom: 200px;
+}  
+
+ 
+.edit {
+    position: absolute;
+    left: 1221px;
+    top: 164px; 
+} 
+
+.profile-container {
+    background-color: white;
+    width: 308px;
+    height: 308px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 205px;
+    left: 76px;
+    border-radius: 50%;
+    margin-bottom: 20%;
+}
+
+.profile-pic {
+    border: 1px solid grey;
+    border-radius: 50%;
+    margin: 34px;
+    position: relative; 
+}
+
+.input {
+    width: 1140px;
+    justify-content: left;
+    /* height: 1000px; */
+}
+
+.input-text {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 0%;
+}
+
+.input-container {
+    height: 59px;
+    width: 1140px;
+    font-size: 24px;
+    padding-left: 35px;
+    margin-top: 0%;
+}
+
+.postsLikesAndComments{
+    margin-top: 50px;
+    margin-left: 935px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: start;
+}
+
+.postsLikesAndComments a {
+    color: black;
+    text-decoration: none;
+    width: 145px;
+    height: 55px;
+    font-size: 24px;
+    text-decoration: none;
+    border-radius:  29px ;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+    margin: 0px 15px;
+
+   
+}
