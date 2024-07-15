@@ -11,7 +11,7 @@ from models.post import Post
 from models.comment import Comment
 from models.like import Like
 from models import storage
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash # type: ignore
 from flask_login import LoginManager, login_required, login_user, current_user # type: ignore
 
 

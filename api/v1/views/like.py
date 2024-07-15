@@ -21,9 +21,9 @@ def post_likes(post_id):
     return jsonify(likes)
 
 
-@app_views.route('/users/<user_id>/likes', methods=["GET"], strict_slashes=False)
+@app_views.route('/<user_id>/likes', methods=["GET"], strict_slashes=False)
 def user_likes(user_id):
-    '''Retreive all likes of post.'''
+    '''Retreive all likes of user.'''
     user = storage.get(User, user_id)
     if user is None:
         abort(404, "User Not Found")

@@ -2,8 +2,8 @@
 """This module defines a class to manage db storage for hbnb clone"""
 
 from os import getenv
-from sqlalchemy.orm import sessionmaker, scoped_session
-from sqlalchemy.engine import create_engine
+from sqlalchemy.orm import sessionmaker, scoped_session # type: ignore
+from sqlalchemy.engine import create_engine # type: ignore
 from models.base_model import BaseModel, Base
 from models.user import User
 from models.post import Post

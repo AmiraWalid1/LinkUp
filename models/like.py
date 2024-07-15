@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-from sqlalchemy.orm import relationship
-from sqlalchemy import Column, String, Integer, ForeignKey
+from sqlalchemy.orm import relationship # type: ignore
+from sqlalchemy import Column, String, Integer, ForeignKey # type: ignore
 from models.base_model import BaseModel, Base
 
 

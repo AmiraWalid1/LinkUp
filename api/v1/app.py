@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Flask Application """
 import os
-from flask import Flask, render_template, make_response, jsonify
-from flask_cors import CORS
+from flask import Flask, render_template, make_response, jsonify # type: ignore
+from flask_cors import CORS # type: ignore
 from models import storage
 from api.v1.views import app_views
 
