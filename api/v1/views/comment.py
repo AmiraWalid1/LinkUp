@@ -27,7 +27,7 @@ def post_comments(post_id):
     return (jsonify(comments_list))
 
 
-@app_views.route('/users/<user_id>/comments', methods=["GET"], strict_slashes=False)
+@app_views.route('/<user_id>/comments', methods=["GET"], strict_slashes=False)
 def user_comments(user_id):
     """
     Retreive all comments of a user
