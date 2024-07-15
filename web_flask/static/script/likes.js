@@ -12,7 +12,7 @@ async function getLikes(){
         document.querySelector('.posts-container').innerHTML += getHTML(post, user);
     }
 }
-getPosts();
+getLikes();
 function getHTML(post, user){
     return `
     <div class="post-container">
