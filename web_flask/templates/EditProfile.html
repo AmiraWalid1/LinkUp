@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link rel="stylesheet" href="../static/styles/EditProfile.css">
-    <title>Profile</title>
+    <title>Edit Profile</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
     <div class="nav">
         <h2 style="margin-top: 15px; margin-left: 100px;">Edit</h2>
         <a href="profile.html">
-            <img src=".././static/styles/imgs/back.png" alt="" width="24px" height="28px"
+            <img src=".././static/styles/imgs/back.png" alt="Back" width="24px" height="28px"
                 style="position: absolute; top: 15px; right: 90px;">
         </a>
     </div>
@@ -29,42 +29,42 @@
         <img class="profile-pic" src="../static/styles/imgs/me.png" alt="Profile" width="274px"
             style="position: relative; top: 0%; left: 0%;">
         <a href="#">
-            <img src=".././static/styles/imgs/edit.png" alt="" width="48px"
+            <img src=".././static/styles/imgs/edit.png" alt="edit" width="48px"
                 style="position: absolute; left: 45%; top: 40%;">
         </a>
     </div>
 
-    <div class="input">
+    <!-- Edit Profile Form -->
+    <form action="/saveProfile" method="POST" class="input">
         <p class="input-text">First Name*</p>
-        <input type="text" class="input-container" placeholder="Reem">
+        <input type="text" class="input-container" name="first_name" placeholder="Reem" required>
 
         <p class="input-text">Last Name*</p>
-        <input type="text" class="input-container" placeholder="Ezzat">
+        <input type="text" class="input-container" name="last_name" placeholder="Ezzat" required>
 
         <p class="input-text">Bio*</p>
-        <input type="text" class="input-container"
-            placeholder="فَمَن زُحْزِحَ عَنِ النار وَأُدْخِلَ الجنة فَقَدْ فَازَ..">
+        <input type="text" class="input-container" name="bio" placeholder="فَمَن زُحْزِحَ عَنِ النار وَأُدْخِلَ الجنة فَقَدْ فَازَ.." required>
 
         <p class="input-text">Country*</p>
-        <input type="text" class="input-container" placeholder="Egypt">
+        <input type="text" class="input-container" name="country" placeholder="Egypt" required>
 
         <p class="input-text">City*</p>
-        <input type="text" class="input-container" placeholder="Al Isma'iliyah">
+        <input type="text" class="input-container" name="city" placeholder="Al Isma'iliyah" required>
 
         <p class="input-text">Website*</p>
-        <input type="text" class="input-container" placeholder="https://www.linkedin.com/in/reem-ezzat-a42878280/">
-    </div>
+        <input type="url" class="input-container" name="website" placeholder="https://www.linkedin.com/in/reem-ezzat-a42878280/" required>
 
-    <div class="postsLikesAndComments">
-        <a class="Posts" style=" border: 3px solid #198A52; background-color: #198A52;" href="#">
-            <p>Save</p>
-        </a>
-        <a class="Posts" style="border: 3px solid #198A52 ;" href="#">
-            <p>Cancel</p>
-        </a>
-    </div>
+        <div class="postsLikesAndComments">
+            <button type="submit" class="Posts" style="border: 3px solid #198A52; background-color: #198A52;">
+                <p>Save</p>
+            </button>
+            <a class="Posts" style="border: 3px solid #198A52;" href="profile.html">
+                <p>Cancel</p>
+            </a>
+        </div>
+    </form>
 
-    <script src="../static/script/profile.js"></script>
+    <script src="../static/script/EditProfile.js"></script>
 </body>
 
 </html>

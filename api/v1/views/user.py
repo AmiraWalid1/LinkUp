@@ -66,7 +66,8 @@ def update_user(user_id):
     return jsonify(user.to_dict()), 200
 
 
-user_attrs = ['name', 'email', 'password']
+user_attrs = ['username', 'email', 'password', 'first_name', 'last_name', 'bio',
+              'country', 'city']
 
 
 @app_views.route('/users', methods=['POST'], strict_slashes=False)
