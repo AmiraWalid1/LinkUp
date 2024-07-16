@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const user = JSON.parse(localStorage.getItem('user'));
-    console.log(user);
+    // console.log(user);
+
     if (!user) {
         // Redirect to login page if no user is logged in
         window.location.href = 'login.html';
@@ -18,9 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Update innerText or attributes with user data
     nameElement.innerText = user.first_name + ' ' +user.last_name;
-    usernameElement.innerText = "@" + user.username || `@it's_${user.first_name.toLowerCase()}`;
-    bioElement.innerText = user.bio || `Hi! I am ${user.first_name.toLowerCase()}👋️`;
+    usernameElement.innerText = "@" + user.username;
+    bioElement.innerText = user.bio;
     linkElement.href = user.website ||'https://www.linkedin.com';
     contactElement.href = "mailto:" + user.email;
-    locationElement.innerHTML = user.country +', '+ user.city + ' '+ locationElement.innerHTML;
+    locationElement.innerHTML = user.country + ', ' + user.city + ' ' + locationElement.innerHTML;
 });

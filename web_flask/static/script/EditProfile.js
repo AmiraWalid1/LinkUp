@@ -2,8 +2,8 @@
     const urlParams = new URLSearchParams(window.location.search);
     const fromPage = urlParams.get('from');
 
-    const storedUser = JSON.parse(localStorage.getItem('user'));
-    console.log(storedUser);
+    const user = JSON.parse(localStorage.getItem('user'));
+    // console.log(user);
 
     if (fromPage !== 'profile') {
         let nav =  document.querySelector('.nav');
@@ -11,9 +11,16 @@
         let backImg = nav.getElementsByTagName('a')[0];
 
         textNav.innerText = "Enter your information";
-        nav.removeChild(backImg);
+        nav.removeChild(backImg);   
+    }
+    else {
+        document.querySelector('input[name="first_name"]').value = user.first_name;
+        document.querySelector('input[name="last_name"]').value = user.last_name ;
+        document.querySelector('input[name="bio"]').value = user.bio ;
+        document.querySelector('input[name="country"]').value = user.country ;
+        document.querySelector('input[name="city"]').value = user.city ;
+        document.querySelector('input[name="website"]').value = user.website ;
 
-        
     }
 
 
@@ -27,7 +34,7 @@
         const website = event.target.website.value;
 
         const userInfo = {
-            ...storedUser,
+            ...user,
             first_name,
             last_name,
             bio,
@@ -35,7 +42,8 @@
             city,
             website
         };
-        console.log(userInfo);
+
+        // console.log(userInfo);
         localStorage.setItem('user', JSON.stringify(userInfo));
         if (fromPage !== 'profile') {
             await postUser(userInfo);
