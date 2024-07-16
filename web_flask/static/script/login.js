@@ -6,4 +6,5 @@ document.getElementById('login-form').addEventListener('submit', async function 
     const password = event.target.password.value;
     
     await getUser(username, password);
+    window.location.href = 'home.html';
 });

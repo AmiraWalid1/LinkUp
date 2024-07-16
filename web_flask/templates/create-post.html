@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-    <link rel="stylesheet" href="../static/styles/post.css">
-    <title>Likes</title>
+    <link rel="stylesheet" href="../static/styles/create-post.css">
+    <title>Create Post</title>
 </head>
 
 <body>
@@ -15,9 +15,9 @@
     <!-- Post 1 Section -->
     <div class="post-container">
         <div class="profileAndUser">
-            <img class="post-pic" src="../static/styles/imgs/me.png" alt="profile Pic">
+            <img class="post-pic" src="" alt="profile Pic">
             <div class="userAndOline">
-                <h2 class="user-name" style="height: 29px; margin-top: 62px;">Reem Ezzat
+                <h2 class="user-name" style="height: 29px; margin-top: 62px;">
                     <button style="background-color: white; border: none; cursor: pointer;"> <img
                             src="../static/styles/imgs/downArrow.png" alt="" width="20px" height="20px">
                     </button>
@@ -29,9 +29,7 @@
         </div>
 
         <div class="post-content">
-            <!-- <input type="text" placeholder="What do you want to talk about?"> -->
-            <textarea name="input" placeholder="What do you want to talk about?"></textarea>
-
+            <textarea name="input" id="postContent" placeholder="What do you want to talk about?"></textarea>
         </div>
 
 
@@ -65,7 +63,9 @@
             <p>Cancel</p>
         </a>
     </div>
-
+    <script src="../static/script/CRUD_user.js" type="module"></script>
+    <script src="../static/script/CRUD-post.js" type="module"></script>
+    <script src="../static/script/create-post.js" type="module"></script>
 </body>
 
 </html>

@@ -54,7 +54,7 @@ def update_user(user_id):
     if json_data is None:
         abort(400, 'Not a JSON')
 
-    ignore = ['id', 'created_at', 'updated_at']
+    ignore = ['id', 'created_at', 'updated_at', '__class__']
     user = storage.get(User, user_id)
     if user is None:
         abort(404, "User Not Found")

@@ -6,7 +6,6 @@ document.getElementById('signup-form').addEventListener('submit', async function
     let user = {username, email, password}
     localStorage.setItem('user', JSON.stringify(user));
 
-    let url = new URL(window.location.origin + '/web_flask/templates/EditProfile.html');
-    window.location.href = url;
+    window.location.href = 'edit-profile.html';
 });
 

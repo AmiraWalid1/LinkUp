@@ -1,9 +1,9 @@
-    import { postUser } from "./CRUD_user.js";
+    import { postUser, putUser } from "./CRUD_user.js";
     const urlParams = new URLSearchParams(window.location.search);
     const fromPage = urlParams.get('from');
 
     const user = JSON.parse(localStorage.getItem('user'));
-    // console.log(user);
+    console.log(user);
 
     if (fromPage !== 'profile') {
         let nav =  document.querySelector('.nav');
@@ -47,6 +47,9 @@
         localStorage.setItem('user', JSON.stringify(userInfo));
         if (fromPage !== 'profile') {
             await postUser(userInfo);
+        }
+        else {
+            await putUser(user);
         }
 
     });
