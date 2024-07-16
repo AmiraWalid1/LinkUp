@@ -1,66 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linkup Project</title>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link rel="stylesheet" href="../static/styles/landingPage.css">
+    <title>Linkup Project</title>
 </head>
+
 <body>
-    <!-- Intro Section -->
-    <header class="intro-section">
-        <img src="../static/styles/imgs/cover.png" alt="Cover Image" class="cover-image">
-        <h1>Linkup</h1>
-        <p class="tagline">Connecting People Seamlessly</p>
-        <nav class="navbar">
-            <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
-        <button class="project-button" onclick="location.href='home.html'">Visit the App</button>
-    </header>
-
-    <!-- Feature Section -->
-    <section id="features" class="feature-section">
-        <h2>Key Features</h2>
-        <div class="feature">
-            <img src="../static/styles/imgs/homeScreen.png" alt="Feature 1">
-            <h3>Discover People</h3>
-            <p>Allows users to find and connect with new people based on their interests, location, or mutual connections. Users can browse profiles, send friend requests, and view suggested connections.</p>
-        </div>
-        <div class="feature">
-            <img src="../static/styles/imgs/activity.png" alt="Feature 2">
-            <h3>Activity Feed</h3>
-            <p>The Activity Feed displays recent activities of the user's connections, such as posts, likes, and comments. It helps users stay updated with what their friends and connections are sharing and doing on the platform.</p>
-        </div>
-        <div class="feature">
-            <img src="../static/styles/imgs/homeScreen.png" alt="Feature 3">
-            <h3>Content Sharing and Reactions</h3>
-            <p>Allows users to share posts, photos, videos, and links on their timeline. Other users can react to these posts with likes, comments, and shares, promoting interaction and engagement.</p>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <h2>About Linkup</h2>
-        <p>
-            The inspiration for Linkup came from our personal experiences with existing social platforms. We wanted to create a space where connecting with others is both simple and secure.
-        </p>
-        <div class="team">
-            <h3>Meet the Team</h3>
-            <div class="team-member">
-                <h4>Amira Walid</h4>
-                <a href="https://www.linkedin.com/in/amira-walid/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/AmiraWalid1" target="_blank">GitHub</a>
+    <nav class="nav">
+        <div class="nav-left">
+            <div class="title">
+                <h2>Link <span
+                        style="background-color: #0B502E; color: white; padding: 5px 2px;border-radius: 10px ; ">UP!</span>
+                </h2>
             </div>
-            <div class="team-member">
-                <h4>Azza Ibrahim</h4>
-                <a href="https://www.linkedin.com/in/azza-jailani-9b138b234/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/azziimm7" target="_blank">GitHub</a>
+            <div class="search-box">
+                <img class="search-icon" src="../static/styles/imgs/search icon.png" alt="search" height="20px">
+                <input class="search-input" type="search" placeholder="Search">
             </div>
         </div>
-        <a href="https://github.com/AmiraWalid1/LinkUp" target="_blank">GitHub Repository</a>
+
+        <div class="nav-right">
+            <a class="nav-link" href="home.html">
+                <div class="link-container">
+                    <img class="nav-icon" src="../static/styles/imgs/home black.png" alt="home" height="25px"
+                        width="25px">
+                    <p class="nav-text">Home</p>
+                </div>
+            </a>
+
+            <a class="nav-link" href="#">
+                <div class="link-container">
+                    <img class="nav-icon" src="../static/styles/imgs/message.png" alt="home" height="25px" width="25px">
+                    <p class="nav-text">Message</p>
+                </div>
+            </a>
+
+            <a class="nav-link" href="#">
+                <div class="link-container">
+                    <img class="nav-icon" src="../static/styles/imgs/bell.png" alt="home" height="25px" width="25px">
+                    <p class="nav-text">Notification</p>
+                </div>
+            </a>
+        </div>
+
+    </nav>
+
+    <section>
+        <div class="text">
+            <h1>Link Up</h1>
+            <p style="width: 515px; font-size: 24px;">LikeUp is a social networking platform designed to connect users
+                through shared
+                interests and activities.
+                Users can create profiles, share posts, comment on others' content, and express their appreciation
+                through
+                likes.</p>
+
+            <div class="buttons" style="margin-bottom: 50px;">
+                <button style="color: white; background-color: #0B502E; border:  #0B502E;">Login</button>
+                <p style="margin-left: 60px; margin-right: 60px;">Or</p>
+                <button style=" background-color: white; border: 3px solid #0B502E;">Signup</button>
+            </div>
+
+            <div class="buttons">
+                <a href="#">
+                    <img src="../static/styles/imgs/google2.png" alt="" width="61px" height="61px">
+                </a>
+                <a href="#">
+                    <img src="../static/styles/imgs/facebook.png" alt="" width="61px" height="61px">
+                </a>
+                <a href="#">
+                    <img src="../static/styles/imgs/whatsapp.png" alt="" width="61px" height="61px">
+                </a>
+                <a href="#">
+                    <img src="../static/styles/imgs/apple2.png" alt="" width="61px" height="61px">
+                </a>
+            </div>
+        </div>
+
+
+        <img src="../static/styles/imgs/LandingPic.png" alt="" width="750px" height="500px" style="margin-top: 10px;">
+
     </section>
+
+    <footer>
+        <div class="developer">
+            <img src="../static/styles/imgs/reem.png" alt="" width="202px" height="202px">
+            <h3>Reem Ezzat</h3>
+            <p>UI/UX</p>
+        </div>
+        <div class="developer">
+            <img src="../static/styles/imgs/hussam.png" alt="" width="202px" height="202px">
+            <h3>Hussam Eldeen</h3>
+            <p>Front End</p>
+        </div>
+        <div class="developer">
+            <img src="../static/styles/imgs/amira2.png" alt="" width="202px" height="202px">
+            <h3>Amira Walid</h3>
+            <p>Backend</p>
+        </div>
+        <div class="developer">
+            <img src="../static/styles/imgs/azza.png" alt="" width="202px" height="202px">
+            <h3>Azza Ibrahim</h3>
+            <p>Backend</p>
+        </div>
+    </footer>
 </body>
+
 </html>
