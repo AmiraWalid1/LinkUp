@@ -39,6 +39,7 @@ export async function getUser(username, password) {
 
         if (user) {
             // Redirect to home.html on successful login
+            localStorage.setItem("user", JSON.stringify(user))
             window.location.href = new URL(window.location.origin + '/web_flask/templates/home.html');
         } else {
             console.log('User not found or incorrect credentials.');
