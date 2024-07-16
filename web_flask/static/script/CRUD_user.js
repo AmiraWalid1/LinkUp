@@ -17,7 +17,6 @@ export async function postUser(user) {
         // console.log(data);
     
         // Redirect to the login page after successful sign-up
-        // let url = new URL(window.location.origin + '/web_flask/templates/profile.html');
         window.location.href = 'profile.html';
     } catch (error) {
         console.error('Error:', error);
