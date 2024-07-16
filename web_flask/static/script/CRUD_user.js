@@ -1,4 +1,4 @@
-async function postUser(user) {
+export async function postUser(user) {
     try {
         let response = await fetch('http://localhost:5000/api/v1/users', {
             method: 'POST',
@@ -17,10 +17,11 @@ async function postUser(user) {
         // console.log(data);
     
         // Redirect to the login page after successful sign-up
-        url = new URL(window.location.origin + '/web_flask/templates/login.html');
+        let url = new URL(window.location.origin + '/web_flask/templates/profile.html');
         window.location.href = url;
     } catch (error) {
         console.error('Error:', error);
     }
     
 }
+
