@@ -31,6 +31,15 @@ body {
     top: 164px; 
 } 
 
+#file {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 30px;
+    background-image: url(../styles/imgs/edit.png);
+    text-indent:-9999px;
+    cursor: pointer;
+}
+
 .profile-container {
     background-color: white;
     width: 308px;
