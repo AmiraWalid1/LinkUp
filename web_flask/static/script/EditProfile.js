@@ -2,7 +2,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     const fromPage = urlParams.get('from');
 
-    const user = JSON.parse(localStorage.getItem('user'));
+    let user = JSON.parse(localStorage.getItem('user'));
     console.log(user);
 
     if (fromPage !== 'profile') {
@@ -44,13 +44,13 @@
         };
 
         // console.log(userInfo);
-        localStorage.setItem('user', JSON.stringify(userInfo));
         if (fromPage !== 'profile') {
-            await postUser(userInfo);
+            user = await postUser(userInfo);
         }
         else {
-            await putUser(user);
+            user = await putUser(userInfo);
         }
-
+        localStorage.setItem('user', JSON.stringify(user));
+        window.location.href = 'profile.html';
     });
 

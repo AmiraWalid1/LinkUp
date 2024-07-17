@@ -1,12 +1,14 @@
-async function getPosts(){
-    let postsResponse = await fetch('http://localhost:5000/api/v1/posts');
-    let posts = await postsResponse.json();
+import { getAllPosts } from "./CRUD-post.js";
+
+async function displayPosts(){
+    
+    let posts = await getAllPosts();
 
     for(let post of posts){
-        console.log(post.user_id);
+        // console.log(post.user_id);
         let userResponse = await fetch(`http://localhost:5000/api/v1/users/${post.user_id}`);
         let user = await userResponse.json()
-        console.log(user);
+        // console.log(user);
         document.querySelector('.posts-container').innerHTML += getHTML(post, user);
     }
 
@@ -25,10 +27,11 @@ function getHTML(post, user){
 
             </div>
 
-            <div class="post-text">
+            <div class="post-content">
                 <p style="white-space:wrap; margin-left: 45px; margin-bottom: 25px; font-size: 18px;">${post.content}
                 </p>
-
+                <!-- <img src="../static/styles/imgs/gaza.jpg" alt="gaza" width="964px" height="550px"
+                    style="border-radius: 50px;"> -->
             </div>
 
             <div class="post-options-formula">

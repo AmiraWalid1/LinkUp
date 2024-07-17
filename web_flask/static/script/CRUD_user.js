@@ -1,4 +1,5 @@
 export async function postUser(user) {
+    // post new user
     try {
         let response = await fetch('http://localhost:5000/api/v1/users', {
             method: 'POST',
@@ -16,8 +17,7 @@ export async function postUser(user) {
         let data = await response.json();
         // console.log(data);
     
-        // Redirect to the login page after successful sign-up
-        window.location.href = 'profile.html';
+        return data;
     } catch (error) {
         console.error('Error:', error);
     }
@@ -25,6 +25,7 @@ export async function postUser(user) {
 }
 
 export async function putUser(user) {
+    // update data of user
     try {
         let response = await fetch(`http://localhost:5000/api/v1/users/${user.id}`, {
             method: 'PUT',
@@ -41,16 +42,15 @@ export async function putUser(user) {
     
         let data = await response.json();
         // console.log(data);
-    
-        // Redirect to the login page after successful sign-up
-        window.location.href = 'profile.html';
+        return data;
     } catch (error) {
         console.error('Error:', error);
     }
     
 }
 
-export async function getUser(username, password) {
+export async function getAllUsers(username, password) {
+    // return user with spacific name and password
     try{
         const response = await fetch('http://localhost:5000/api/v1/users');
         if (!response.ok) {
@@ -60,15 +60,7 @@ export async function getUser(username, password) {
 
         let data = await response.json();
         // console.log(data);
-        const user = data.find(user => user.username === username && user.password === password);
-
-        if (user) {
-            // Redirect to home.html on successful login
-            localStorage.setItem("user", JSON.stringify(user))
-        } else {
-            console.log('User not found or incorrect credentials.');
-            // Handle invalid login scenario (display error message, etc.)
-        }
+       return data;
     } catch (error) {
         console.error('Error:', error);
     }

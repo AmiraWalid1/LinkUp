@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nameElement.innerText = user.first_name + ' ' +user.last_name;
     usernameElement.innerText = "@" + user.username;
     bioElement.innerText = user.bio;
-    linkElement.href = user.website ||'https://www.linkedin.com';
+    linkElement.href = user.website || "https://www.linkedin.com";
     contactElement.href = "mailto:" + user.email;
     locationElement.innerHTML = user.country + ', ' + user.city + ' ' + locationElement.innerHTML;
 });
