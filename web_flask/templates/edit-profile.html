@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-    <link rel="stylesheet" href="../static/styles/EditProfile.css">
+    <link rel="stylesheet" href="../static/styles/edit-profile.css">
     <title>Edit Profile</title>
 </head>
 
@@ -22,49 +22,56 @@
 
     <!-- Profile and cover photo -->
     <img class="cover" src="../static/styles/imgs/cover.png" alt="cover" width="100%">
-    <a href="#">
-        <img class="edit" src="../static/styles/imgs/edit.png" alt="edit" width="48px">
-    </a>
+
+    <div class="edit">
+        <form>
+            <input type="file" id="file">
+        </form>
+    </div>
+
     <div class="profile-container">
-        <img class="profile-pic" src="../static/styles/imgs/me.png" alt="Profile" width="274px"
+        <img class=" profile-pic" src="../static/styles/imgs/me.png" alt="Profile" width="274px"
             style="position: relative; top: 0%; left: 0%;">
-        <a href="#">
-            <img src=".././static/styles/imgs/edit.png" alt="edit" width="48px"
-                style="position: absolute; left: 45%; top: 40%;">
-        </a>
+
+        <div class="edit" style="position: absolute; left: 45%; top: 40%;">
+            <form>
+                <input type="file" id="file">
+            </form>
+        </div>
     </div>
 
     <!-- Edit Profile Form -->
     <form action="/saveProfile" method="POST" class="input">
         <p class="input-text">First Name*</p>
-        <input type="text" class="input-container" name="first_name" placeholder="Reem" required>
+        <input type="text" class="input-container" name="first_name"  required>
 
         <p class="input-text">Last Name*</p>
-        <input type="text" class="input-container" name="last_name" placeholder="Ezzat" required>
+        <input type="text" class="input-container" name="last_name" required>
 
         <p class="input-text">Bio*</p>
-        <input type="text" class="input-container" name="bio" placeholder="فَمَن زُحْزِحَ عَنِ النار وَأُدْخِلَ الجنة فَقَدْ فَازَ.." required>
+        <input type="text" class="input-container" name="bio" required>
 
         <p class="input-text">Country*</p>
-        <input type="text" class="input-container" name="country" placeholder="Egypt" required>
+        <input type="text" class="input-container" name="country"  required>
 
         <p class="input-text">City*</p>
-        <input type="text" class="input-container" name="city" placeholder="Al Isma'iliyah" required>
+        <input type="text" class="input-container" name="city"  required>
 
         <p class="input-text">Website*</p>
-        <input type="url" class="input-container" name="website" placeholder="https://www.linkedin.com/in/reem-ezzat-a42878280/" required>
+        <input type="url" class="input-container" name="website"
+            required>
 
         <div class="postsLikesAndComments">
             <button type="submit" class="Posts" style="border: 3px solid #198A52; background-color: #198A52;">
                 <p>Save</p>
             </button>
-            <a class="Posts" style="border: 3px solid #198A52;" href="profile.html">
+            <a class="Cancel" style="border: 3px solid #198A52;" href="profile.html">
                 <p>Cancel</p>
             </a>
         </div>
     </form>
-
-    <script src="../static/script/EditProfile.js"></script>
+    <script src="../static/script/CRUD_user.js" type="module"></script>
+    <script src="../static/script/EditProfile.js" type="module"></script>
 </body>
 
 </html>

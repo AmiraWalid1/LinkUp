@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="stylesheet" href="../static/styles/create-post.css">
+    <title>Create Post</title>
+</head>
+
+<body>
+
+
+    <!-- Post 1 Section -->
+    <div class="post-container">
+        <div class="profileAndUser">
+            <img class="post-pic" src="" alt="profile Pic">
+            <div class="userAndOline">
+                <h2 class="user-name" style="height: 29px; margin-top: 62px;">
+                    <button style="background-color: white; border: none; cursor: pointer;"> <img
+                            src="../static/styles/imgs/downArrow.png" alt="" width="20px" height="20px">
+                    </button>
+
+                </h2>
+                <p style="height: 16px; margin-top: 0px;  margin-left: 5px;"> Post to Anyone
+            </div>
+
+        </div>
+
+        <div class="post-content">
+            <textarea name="input" id="postContent" placeholder="What do you want to talk about?"></textarea>
+        </div>
+
+
+
+    </div>
+
+    <div class="post-options">
+        <button class="options">
+            <img src="../static/styles/imgs/emoji.png" alt="Media" height="20px" style="margin-right: 10px;">
+        </button>
+
+        <div class="options">
+            <form>
+                <input type="file" id="file">
+            </form>
+        </div>
+
+        <button class="options">
+            <img src="../static/styles/imgs/calender2.png" alt="Event" height="20px" style="margin-right: 10px;">
+        </button>
+        <button class="options">
+            <img src="../static/styles/imgs/dots.png" alt="Event" height="20px" style="margin-right: 10px;">
+        </button>
+    </div>
+
+    <div class="postsLikesAndComments">
+        <a class="Posts" href="home.html">
+            <p>Post</p>
+        </a>
+        <a class="Cancel" href="home.html">
+            <p>Cancel</p>
+        </a>
+    </div>
+    <script src="../static/script/CRUD_user.js" type="module"></script>
+    <script src="../static/script/CRUD-post.js" type="module"></script>
+    <script src="../static/script/create-post.js" type="module"></script>
+</body>
+
+</html>

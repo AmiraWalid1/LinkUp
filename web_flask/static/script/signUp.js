@@ -3,9 +3,9 @@ document.getElementById('signup-form').addEventListener('submit', async function
     const username = event.target.username.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    
-    let url = new URL(window.location.origin + '/web_flask/templates/EditProfile.html');
-    window.location.href = url;
+    let user = {username, email, password}
+    localStorage.setItem('user', JSON.stringify(user));
 
-   
+    window.location.href = 'edit-profile.html';
 });
+

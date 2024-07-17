@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    const user = JSON.parse(localStorage.getItem('user'));
+    // console.log(user);
 
-    if (!loggedInUser) {
+    if (!user) {
         // Redirect to login page if no user is logged in
         window.location.href = 'login.html';
         return;
@@ -15,13 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const locationElement = document.querySelector(".Location");
     const contactElement = document.querySelector(".Contact");
     const followersElement = document.querySelector(".Followers");
-    const firstName = loggedInUser.name.split(' ')[0].toLowerCase();
     
     // Update innerText or attributes with user data
-    nameElement.innerText = loggedInUser.name;
-    usernameElement.innerText = "@it's_" + firstName;
-    bioElement.innerText = loggedInUser.bio || `Hi! I am ${firstName}👋️`;
-    linkElement.href = 'https://www.linkedin.com';
-    contactElement.href = "mailto:" + loggedInUser.email;
-    locationElement.innerHTML = "Al Isma'iliyah, Egypt   " + locationElement.innerHTML;
+    nameElement.innerText = user.first_name + ' ' +user.last_name;
+    usernameElement.innerText = "@" + user.username;
+    bioElement.innerText = user.bio;
+    linkElement.href = user.website ||'https://www.linkedin.com';
+    contactElement.href = "mailto:" + user.email;
+    locationElement.innerHTML = user.country + ', ' + user.city + ' ' + locationElement.innerHTML;
 });

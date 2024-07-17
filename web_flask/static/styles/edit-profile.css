@@ -31,6 +31,15 @@ body {
     top: 164px; 
 } 
 
+#file {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 30px;
+    background-image: url(../styles/imgs/edit.png);
+    text-indent:-9999px;
+    cursor: pointer;
+}
+
 .profile-container {
     background-color: white;
     width: 308px;
@@ -74,7 +83,7 @@ body {
 
 .postsLikesAndComments{
     margin-top: 50px;
-    margin-left: 935px;
+    margin-left: 850px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -96,4 +105,17 @@ body {
     margin: 0px 15px;
 
    
+}
+ 
+.Posts {
+    width: 151px;
+    height: 61px;
+    font-size: 24px;
+    text-decoration: none;
+    border-radius:  29px ;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+    cursor: pointer;
 }
