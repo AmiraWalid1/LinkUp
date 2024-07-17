@@ -12,7 +12,6 @@
 <body>
 
 
-    <!-- Post 1 Section -->
     <div class="post-container">
         <div class="profileAndUser">
             <img class="post-pic" src="" alt="profile Pic">
@@ -31,7 +30,10 @@
         <div class="post-content">
             <textarea name="input" id="postContent" placeholder="What do you want to talk about?"></textarea>
         </div>
-
+        <!-- Container to display the selected image
+        <div id="selected-image-container" style="margin-top: 20px;">
+            <img id="selected-image" src="" alt="Selected Image" style="max-width: 100%; display: none;">
+        </div> -->
 
 
     </div>
@@ -41,9 +43,10 @@
             <img src="../static/styles/imgs/emoji.png" alt="Media" height="20px" style="margin-right: 10px;">
         </button>
 
+        <!-- File input for selecting an image -->
         <div class="options">
             <form>
-                <input type="file" id="file">
+                <input type="file" id="file" accept="image/*">
             </form>
         </div>
 

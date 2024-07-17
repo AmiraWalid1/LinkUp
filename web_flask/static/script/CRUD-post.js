@@ -1,11 +1,11 @@
-export async function postPost(user, content){
+export async function postPost(user, post){
     try {
         let response = await fetch(`http://localhost:5000/api/v1/users/${user.id}/posts`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({content}),
+            body: JSON.stringify(post),
         });
     
         if (!response.ok) {
