@@ -10,7 +10,7 @@ linkuP is a social media platform designed to connect people based on their inte
   - [Hussam Eldeen](http://your-linkedin-profile.com)
 
 ## Landing Page
-You can visit our landing page [here](https://amirawalid1.github.io/LinkUp/web_flask/templates/landing-page.html).
+You can visit our landing page [here](https://amirawalid1.github.io/LinkUp/web/templates/landing-page.html).
 
 
 ## Usage

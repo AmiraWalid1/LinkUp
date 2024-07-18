@@ -4,7 +4,7 @@ starts a Flask web application
 """
 
 from flask import Flask, render_template, url_for, redirect, flash, abort # type: ignore
-from web_flask.forms import RegistrationForm, LoginForm, PostForm
+from web.forms import RegistrationForm, LoginForm, PostForm
 from models.base_model import BaseModel
 from models.user import User
 from models.post import Post
@@ -46,7 +46,7 @@ def login():
     return render_template('login.html', form=form)
 
 
-@app.route('/signUp.html', methods=['GET', 'POST'], strict_slashes=False)
+@app.route('/signup.html', methods=['GET', 'POST'], strict_slashes=False)
 def signup():
     """returns sign up page"""
     form = RegistrationForm()
@@ -59,7 +59,7 @@ def signup():
         flash("You've been registered successfully, now you can log in.")
         return redirect(url_for("login.html"))
 
-    return render_template('signUp.html', form=form)
+    return render_template('signup.html', form=form)
 
 
 @app.route("/home.html", methods=['GET', 'POST'])
